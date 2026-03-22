@@ -26,7 +26,7 @@ const services = [
     icon: HardHat,
     title: "Limpieza Post-Obra",
     subtitle: "8€ / m²",
-    note: "Maquinaria industrial incluida",
+    note: "Productos y equipos específicos",
     img: beforeAfterImg,
     alt: "Antes y después de limpieza post-obra",
     items: [
