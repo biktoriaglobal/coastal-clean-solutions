@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Sparkles, HardHat, Building2, Briefcase, CheckCircle2 } from "lucide-react";
+import { Sparkles, HardHat, Building2, Briefcase, CheckCircle2, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import turisticImg from "@/assets/turistic-clean.jpg";
 import beforeAfterImg from "@/assets/before-after.jpg";
 import communityImg from "@/assets/community-clean.jpg";
@@ -26,7 +27,7 @@ const services = [
     icon: HardHat,
     title: "Limpieza Post-Obra",
     subtitle: "8€ / m²",
-    note: "Maquinaria industrial incluida",
+    note: "Productos y equipos específicos",
     img: beforeAfterImg,
     alt: "Antes y después de limpieza post-obra",
     items: [
@@ -72,11 +73,12 @@ const fadeUp = {
 };
 
 const ServicesSection = () => (
-  <section id="servicios" className="py-20 bg-coast-gradient">
+  <section id="servicios" className="py-24 bg-coast-gradient">
     <div className="container">
-      <div className="text-center mb-14">
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Nuestros Servicios</h2>
-        <p className="text-muted-foreground max-w-xl mx-auto">
+      <div className="text-center mb-16">
+        <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">Servicios</span>
+        <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">Nuestros Servicios</h2>
+        <p className="text-muted-foreground max-w-xl mx-auto text-lg">
           Soluciones de limpieza profesional adaptadas a cada necesidad en toda la costa valenciana.
         </p>
       </div>
@@ -89,23 +91,23 @@ const ServicesSection = () => (
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUp}
-            className="bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300"
+            className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 group"
           >
-            <div className="h-48 overflow-hidden">
-              <img src={s.img} alt={s.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <div className="h-52 overflow-hidden">
+              <img src={s.img} alt={s.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             </div>
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+            <div className="p-7">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <s.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-bold text-foreground">{s.title}</h3>
-                  <span className="text-sm font-semibold text-primary">{s.subtitle}</span>
+                  <span className="text-sm font-bold text-primary">{s.subtitle}</span>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mb-4 italic">{s.note}</p>
-              <ul className="space-y-2">
+              <ul className="space-y-2 mb-6">
                 {s.items.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
                     <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
@@ -113,6 +115,11 @@ const ServicesSection = () => (
                   </li>
                 ))}
               </ul>
+              <Button variant="outline" size="sm" className="gap-2" asChild>
+                <a href="#contacto">
+                  Solicitar presupuesto <ArrowRight className="w-4 h-4" />
+                </a>
+              </Button>
             </div>
           </motion.div>
         ))}

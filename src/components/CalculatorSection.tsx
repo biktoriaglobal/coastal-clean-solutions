@@ -37,7 +37,7 @@ const CalculatorSection = () => {
               <p className="text-3xl font-bold text-primary">{price.toLocaleString("es-ES")}€</p>
             </div>
           </div>
-          <p className="text-xs text-muted-foreground mt-4">Precio: 8€/m² · Incluye maquinaria industrial</p>
+          <p className="text-xs text-muted-foreground mt-4">Precio: 8€/m²</p>
           <Button className="mt-6 w-full sm:w-auto" asChild>
             <a
               href={`https://wa.me/34601902204?text=Hola!%20Necesito%20presupuesto%20post-obra%20para%20${m2 || "___"}%20m²%20(estimado%20${price}€)`}
