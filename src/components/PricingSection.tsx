@@ -75,7 +75,7 @@ const PricingSection = () => (
             }`}
           >
             {p.badge && (
-              <span className="absolute top-4 right-4 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full shadow-md">
+              <span className="absolute top-4 right-4 bg-secondary text-secondary-foreground text-xs font-bold px-3 py-1 rounded-full shadow-md">
                 {p.badge}
               </span>
             )}
@@ -89,7 +89,7 @@ const PricingSection = () => (
             <ul className="space-y-3 mb-8 flex-1">
               {p.features.map((f) => (
                 <li key={f} className="flex items-center gap-2 text-sm">
-                  <Check className={`w-4 h-4 shrink-0 ${p.highlight ? "text-accent" : "text-secondary"}`} />
+                  <Check className={`w-4 h-4 shrink-0 ${p.highlight ? "text-secondary" : "text-accent"}`} />
                   <span className={p.highlight ? "text-primary-foreground/90" : "text-foreground/80"}>{f}</span>
                 </li>
               ))}
@@ -97,7 +97,7 @@ const PricingSection = () => (
             <div className="flex flex-col gap-3">
               <Button
                 variant={p.highlight ? "secondary" : "default"}
-                className={`w-full gap-2 ${p.highlight ? "bg-accent hover:bg-accent/90 text-accent-foreground" : "bg-hero-gradient text-primary-foreground hover:opacity-90"}`}
+                className="w-full gap-2"
                 asChild
               >
                 <a
@@ -110,7 +110,7 @@ const PricingSection = () => (
               </Button>
               <Button
                 variant="outline"
-                className={`w-full gap-2 ${p.highlight ? "border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" : "hover:bg-primary/5"}`}
+                className={`w-full gap-2 ${p.highlight ? "border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" : ""}`}
                 asChild
               >
                 <a href="#contacto">
