@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles, HardHat, ArrowDown, CheckCircle2 } from "lucide-react";
+import { Sparkles, HardHat, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-cleaning.jpg";
 import { useEffect, useState, useRef } from "react";
@@ -35,7 +35,6 @@ const AnimatedCounter = ({ target, suffix = "", duration = 2000 }: { target: num
 };
 
 const stats = [
-  { value: 500, suffix: "+", label: "Servicios realizados" },
   { value: 10, suffix: "", label: "Municipios cubiertos" },
   { value: 98, suffix: "%", label: "Clientes satisfechos" },
   { value: 7, suffix: "/7", label: "Días disponibles" },
@@ -49,7 +48,6 @@ const HeroSection = () => (
       <div className="absolute inset-0 bg-hero-gradient opacity-15" />
     </div>
 
-    {/* Animated particles */}
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {[...Array(6)].map((_, i) => (
         <motion.div
@@ -81,8 +79,7 @@ const HeroSection = () => (
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-primary-foreground leading-[1.05] mb-8 tracking-tight">
           Tu costa,
           <motion.span
-            className="block text-transparent bg-clip-text"
-            style={{ backgroundImage: "linear-gradient(135deg, hsl(165 80% 65%), hsl(35 95% 60%))" }}
+            className="block text-secondary drop-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
@@ -116,12 +113,11 @@ const HeroSection = () => (
           </Button>
         </motion.div>
 
-        {/* Stats bar */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 bg-primary-foreground/5 backdrop-blur-xl rounded-2xl p-6 border border-primary-foreground/10"
+          className="mt-16 grid grid-cols-3 gap-6 bg-primary-foreground/5 backdrop-blur-xl rounded-2xl p-6 border border-primary-foreground/10"
         >
           {stats.map((s) => (
             <div key={s.label} className="text-center">
@@ -148,7 +144,7 @@ const HeroSection = () => (
     </motion.div>
     <div className="absolute bottom-0 left-0 right-0">
       <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-        <path d="M0 80H1440V40C1440 40 1320 0 1080 20C840 40 720 60 480 40C240 20 120 0 0 20V80Z" fill="hsl(210 30% 98%)" />
+        <path d="M0 80H1440V40C1440 40 1320 0 1080 20C840 40 720 60 480 40C240 20 120 0 0 20V80Z" fill="hsl(220 20% 97%)" />
       </svg>
     </div>
   </section>

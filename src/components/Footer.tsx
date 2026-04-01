@@ -1,4 +1,4 @@
-import { Phone, MapPin, Mail, Waves } from "lucide-react";
+import { Phone, MapPin, Mail, Sparkles } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-foreground py-16 relative overflow-hidden">
@@ -6,9 +6,9 @@ const Footer = () => (
     <div className="container relative">
       <div className="grid md:grid-cols-3 gap-10 text-primary-foreground/80 text-sm">
         <div>
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-9 h-9 rounded-lg bg-hero-gradient flex items-center justify-center shadow-md">
-              <Waves className="w-4 h-4 text-primary-foreground" />
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-8 h-8 rounded-lg bg-hero-gradient flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-primary-foreground" />
             </div>
             <h3 className="font-display text-2xl font-bold text-primary-foreground">CostaLimpia</h3>
           </div>

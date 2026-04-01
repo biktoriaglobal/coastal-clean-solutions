@@ -51,7 +51,7 @@ const StarRating = ({ rating }: { rating: number }) => (
     {Array.from({ length: 5 }).map((_, i) => (
       <Star
         key={i}
-        className={`w-4 h-4 ${i < rating ? "fill-accent text-accent" : "fill-muted text-muted"}`}
+        className={`w-4 h-4 ${i < rating ? "fill-secondary text-secondary" : "fill-muted text-muted"}`}
       />
     ))}
   </div>
@@ -67,9 +67,9 @@ const TestimonialsSection = () => (
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold mb-4"
         >
-          <Star className="w-4 h-4 fill-accent" /> 5.0 de media
+          <Star className="w-4 h-4 fill-secondary" /> 5.0 de media
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ const TestimonialsSection = () => (
           transition={{ delay: 0.2 }}
           className="text-muted-foreground max-w-xl mx-auto text-lg"
         >
-          Más de 500 servicios realizados con la máxima satisfacción
+          La satisfacción de nuestros clientes es nuestra mejor carta de presentación
         </motion.p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -98,7 +98,7 @@ const TestimonialsSection = () => (
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.4 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className="group bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50 hover:border-primary/30 relative"
+            className="group bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50 hover:border-primary/20 relative"
           >
             <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10 group-hover:text-primary/20 transition-colors" />
             <div className="flex items-center gap-3 mb-4">

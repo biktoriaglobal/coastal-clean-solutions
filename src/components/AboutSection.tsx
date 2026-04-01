@@ -1,11 +1,10 @@
-import { Shield, Clock, Award, TrendingUp } from "lucide-react";
+import { Shield, Clock, Award } from "lucide-react";
 import { motion } from "framer-motion";
 
 const values = [
-  { icon: Shield, title: "Garantía de Calidad", desc: "Si no estás satisfecho, volvemos gratis. Sin preguntas.", color: "bg-primary/10 text-primary" },
+  { icon: Shield, title: "Confianza Total", desc: "Equipo verificado, asegurado y con referencias comprobables en toda la costa.", color: "bg-primary/10 text-primary" },
   { icon: Clock, title: "Disponibilidad Total", desc: "7 días a la semana, incluidos festivos. Adaptados al turismo costero.", color: "bg-secondary/10 text-secondary" },
   { icon: Award, title: "Equipo Profesional", desc: "Personal formado, uniformado y con experiencia en la costa valenciana.", color: "bg-accent/10 text-accent" },
-  { icon: TrendingUp, title: "+500 Servicios", desc: "Experiencia avalada por cientos de clientes satisfechos en toda la costa.", color: "bg-primary/10 text-primary" },
 ];
 
 const AboutSection = () => (
@@ -38,14 +37,14 @@ const AboutSection = () => (
           Somos un equipo local especializado en la limpieza profesional de la costa valenciana. Conocemos cada pueblo, cada necesidad.
         </motion.p>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         {values.map((v, i) => (
           <motion.div
             key={v.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
+            transition={{ delay: i * 0.15 }}
             whileHover={{ y: -6, transition: { duration: 0.3 } }}
             className="text-center bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50 hover:border-primary/20"
           >
