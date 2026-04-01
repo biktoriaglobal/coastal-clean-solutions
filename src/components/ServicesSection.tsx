@@ -14,6 +14,7 @@ const services = [
     note: "No incluye lavandería",
     img: turisticImg,
     alt: "Limpieza de piso turístico en la costa valenciana",
+    color: "from-primary to-primary/80",
     items: [
       "Limpieza profunda de baños y cocina",
       "Repaso de superficies y suelos",
@@ -30,11 +31,12 @@ const services = [
     note: "Productos y equipos específicos",
     img: beforeAfterImg,
     alt: "Antes y después de limpieza post-obra",
+    color: "from-accent to-accent/80",
     items: [
       "Eliminación de polvo fino y restos de cemento",
       "Limpieza de pintura en marcos",
       "Cristales a fondo",
-      "Aspiradoras industriales y productos específicos",
+      "Productos específicos para cada superficie",
     ],
   },
   {
@@ -44,6 +46,7 @@ const services = [
     note: "Frecuencia adaptable",
     img: communityImg,
     alt: "Limpieza de comunidad de vecinos",
+    color: "from-secondary to-secondary/80",
     items: [
       "Escaleras, rellanos y portales",
       "Limpieza de ascensores",
@@ -58,6 +61,7 @@ const services = [
     note: "Fuera de horario comercial",
     img: officeImg,
     alt: "Limpieza profesional de oficinas",
+    color: "from-primary to-secondary",
     items: [
       "Limpieza fuera de horario comercial",
       "Desinfección de puestos de trabajo",
@@ -67,39 +71,56 @@ const services = [
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.15, duration: 0.5 } }),
-};
-
 const ServicesSection = () => (
-  <section id="servicios" className="py-24 bg-coast-gradient">
-    <div className="container">
+  <section id="servicios" className="py-24 bg-coast-gradient relative overflow-hidden">
+    <div className="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-primary/3 blur-[100px]" />
+    <div className="absolute bottom-20 left-0 w-[400px] h-[400px] rounded-full bg-secondary/3 blur-[100px]" />
+    <div className="container relative">
       <div className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">Servicios</span>
-        <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">Nuestros Servicios</h2>
-        <p className="text-muted-foreground max-w-xl mx-auto text-lg">
+        <motion.span
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4"
+        >
+          Servicios
+        </motion.span>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4"
+        >
+          Nuestros Servicios
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="text-muted-foreground max-w-xl mx-auto text-lg"
+        >
           Soluciones de limpieza profesional adaptadas a cada necesidad en toda la costa valenciana.
-        </p>
+        </motion.p>
       </div>
       <div className="grid md:grid-cols-2 gap-8">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-60px" }}
-            variants={fadeUp}
-            className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 group"
+            transition={{ delay: i * 0.12, duration: 0.5 }}
+            className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 group"
           >
-            <div className="h-52 overflow-hidden">
-              <img src={s.img} alt={s.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="h-52 overflow-hidden relative">
+              <img src={s.img} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div className={`absolute inset-0 bg-gradient-to-t ${s.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
             </div>
             <div className="p-7">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <s.icon className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-hero-gradient flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                  <s.icon className="w-5 h-5 text-primary-foreground" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-bold text-foreground">{s.title}</h3>
@@ -107,17 +128,17 @@ const ServicesSection = () => (
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mb-4 italic">{s.note}</p>
-              <ul className="space-y-2 mb-6">
+              <ul className="space-y-2.5 mb-6">
                 {s.items.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
-                    <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-secondary mt-0.5 shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" size="sm" className="gap-2" asChild>
+              <Button variant="outline" size="sm" className="gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300" asChild>
                 <a href="#contacto">
-                  Solicitar presupuesto <ArrowRight className="w-4 h-4" />
+                  Solicitar presupuesto <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
             </div>

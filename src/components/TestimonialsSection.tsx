@@ -6,7 +6,7 @@ const testimonials = [
     name: "María García",
     role: "Propietaria Airbnb · Gandía",
     rating: 5,
-    text: "Desde que trabajo con BrillaCosta, mis reseñas en Airbnb han subido de 4.2 a 4.9. Son puntuales, meticulosos y siempre dejan el piso perfecto para los huéspedes.",
+    text: "Desde que trabajo con CostaLimpia, mis reseñas en Airbnb han subido de 4.2 a 4.9. Son puntuales, meticulosos y siempre dejan el piso perfecto para los huéspedes.",
     avatar: "MG",
   },
   {
@@ -34,7 +34,7 @@ const testimonials = [
     name: "Ana López",
     role: "Gestora turística · Altea",
     rating: 5,
-    text: "Gestiono 12 apartamentos turísticos y BrillaCosta se encarga de todos. Nunca he tenido una queja de un huésped por limpieza. Son mi mano derecha.",
+    text: "Gestiono 12 apartamentos turísticos y CostaLimpia se encarga de todos. Nunca he tenido una queja de un huésped por limpieza. Son mi mano derecha.",
     avatar: "AL",
   },
   {
@@ -51,7 +51,7 @@ const StarRating = ({ rating }: { rating: number }) => (
     {Array.from({ length: 5 }).map((_, i) => (
       <Star
         key={i}
-        className={`w-4 h-4 ${i < rating ? "fill-secondary text-secondary" : "fill-muted text-muted"}`}
+        className={`w-4 h-4 ${i < rating ? "fill-accent text-accent" : "fill-muted text-muted"}`}
       />
     ))}
   </div>
@@ -67,9 +67,9 @@ const TestimonialsSection = () => (
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold mb-4"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4"
         >
-          <Star className="w-4 h-4 fill-secondary" /> 5.0 de media
+          <Star className="w-4 h-4 fill-accent" /> 5.0 de media
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -93,11 +93,12 @@ const TestimonialsSection = () => (
         {testimonials.map((t, i) => (
           <motion.div
             key={t.name}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 24, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="group bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50 hover:border-primary/20 relative"
+            transition={{ delay: i * 0.08, duration: 0.4 }}
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            className="group bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50 hover:border-primary/30 relative"
           >
             <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10 group-hover:text-primary/20 transition-colors" />
             <div className="flex items-center gap-3 mb-4">
