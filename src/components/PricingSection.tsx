@@ -6,7 +6,7 @@ const plans = [
   {
     name: "Pisos Turísticos",
     price: "Desde 60€",
-    unit: "/ 8€ m²",
+    unit: "/ 3€ m²",
     features: [
       "Limpieza profunda completa",
       "Desinfección puntos de contacto",

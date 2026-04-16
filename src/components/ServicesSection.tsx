@@ -10,8 +10,8 @@ const services = [
   {
     icon: Sparkles,
     title: "Pisos Turísticos",
-    subtitle: "Desde 60€ / 8€ m²",
-    note: "Opcional: Check-in · Lavandería a consultar (depende de la zona)",
+    subtitle: "Desde 60€ / 3€ m²",
+    note: "",
     img: turisticImg,
     alt: "Limpieza de piso turístico en la costa valenciana",
     color: "from-primary to-primary/80",
@@ -23,13 +23,14 @@ const services = [
       "Disponibilidad 7 días / semana",
       "Check-list de revisión tras cada limpieza",
     ],
+    extras: ["Opcional: Check-in", "Lavandería (a consultar)"],
   },
   {
     icon: HardHat,
     title: "Limpieza Post-Obra",
     subtitle: "8€ / m²",
     note: "Productos y equipos específicos",
-    img: beforeAfterImg,
+    img: null, // will use postObraImg
     alt: "Antes y después de limpieza post-obra",
     color: "from-accent to-accent/80",
     items: [
@@ -38,6 +39,7 @@ const services = [
       "Cristales a fondo",
       "Productos específicos para cada superficie",
     ],
+    extras: [],
   },
   {
     icon: Building2,
@@ -53,6 +55,7 @@ const services = [
       "Mantenimiento preventivo",
       "Frecuencia: diaria, semanal o quincenal",
     ],
+    extras: [],
   },
   {
     icon: Briefcase,
@@ -68,13 +71,14 @@ const services = [
       "Zonas comunes y baños",
       "Sin interrumpir la actividad",
     ],
+    extras: [],
   },
   {
     icon: Home,
     title: "Limpieza a Domicilio",
     subtitle: "A consultar",
     note: "Servicio personalizado según necesidades",
-    img: communityImg,
+    img: beforeAfterImg,
     alt: "Servicio de limpieza a domicilio",
     color: "from-accent to-primary",
     items: [
@@ -83,6 +87,7 @@ const services = [
       "Plancha y organización",
       "Frecuencia adaptable a tu ritmo",
     ],
+    extras: [],
   },
 ];
 
