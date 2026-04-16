@@ -6,15 +6,14 @@ const plans = [
   {
     name: "Pisos Turísticos",
     price: "Desde 60€",
-    unit: "/ 8€ m²",
+    unit: "/ 3€ m²",
     features: [
       "Limpieza profunda completa",
       "Desinfección puntos de contacto",
       "Check-list de revisión",
       "7 días a la semana",
-      "Opcional: Check-in",
-      "Lavandería a consultar",
     ],
+    extras: ["Opcional: Check-in", "Lavandería (a consultar)"],
     highlight: true,
     badge: "⭐ Popular",
   },
@@ -126,7 +125,7 @@ const PricingSection = () => (
               <span className={`text-3xl font-bold ${p.highlight ? "text-primary-foreground" : "text-primary"}`}>{p.price}</span>
               <span className={`text-sm ml-1 ${p.highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{p.unit}</span>
             </div>
-            <ul className="space-y-2.5 mb-6 flex-1">
+            <ul className="space-y-2.5 mb-3 flex-1">
               {p.features.map((f) => (
                 <li key={f} className="flex items-center gap-2 text-sm">
                   <Check className={`w-4 h-4 shrink-0 ${p.highlight ? "text-secondary" : "text-accent"}`} />
@@ -134,6 +133,13 @@ const PricingSection = () => (
                 </li>
               ))}
             </ul>
+            {p.extras && p.extras.length > 0 && (
+              <div className="mb-6 space-y-1">
+                {p.extras.map((e) => (
+                  <p key={e} className={`text-xs italic pl-6 ${p.highlight ? "text-primary-foreground/60" : "text-muted-foreground"}`}>• {e}</p>
+                ))}
+              </div>
+            )}
             <div className="flex flex-col gap-2.5">
               <Button
                 className="w-full gap-2 bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,38%)] text-white border-0"

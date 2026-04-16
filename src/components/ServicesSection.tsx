@@ -3,6 +3,7 @@ import { Sparkles, HardHat, Building2, Briefcase, Home, CheckCircle2, ArrowRight
 import { Button } from "@/components/ui/button";
 import turisticImg from "@/assets/turistic-clean.jpg";
 import beforeAfterImg from "@/assets/before-after.jpg";
+import postObraImg from "@/assets/post-obra-clean.jpg";
 import communityImg from "@/assets/community-clean.jpg";
 import officeImg from "@/assets/office-clean.jpg";
 
@@ -10,8 +11,8 @@ const services = [
   {
     icon: Sparkles,
     title: "Pisos Turísticos",
-    subtitle: "Desde 60€ / 8€ m²",
-    note: "Opcional: Check-in · Lavandería a consultar (depende de la zona)",
+    subtitle: "Desde 60€ / 3€ m²",
+    note: "",
     img: turisticImg,
     alt: "Limpieza de piso turístico en la costa valenciana",
     color: "from-primary to-primary/80",
@@ -23,13 +24,14 @@ const services = [
       "Disponibilidad 7 días / semana",
       "Check-list de revisión tras cada limpieza",
     ],
+    extras: ["Opcional: Check-in", "Lavandería (a consultar)"],
   },
   {
     icon: HardHat,
     title: "Limpieza Post-Obra",
     subtitle: "8€ / m²",
     note: "Productos y equipos específicos",
-    img: beforeAfterImg,
+    img: null, // will use postObraImg
     alt: "Antes y después de limpieza post-obra",
     color: "from-accent to-accent/80",
     items: [
@@ -38,6 +40,7 @@ const services = [
       "Cristales a fondo",
       "Productos específicos para cada superficie",
     ],
+    extras: [],
   },
   {
     icon: Building2,
@@ -53,6 +56,7 @@ const services = [
       "Mantenimiento preventivo",
       "Frecuencia: diaria, semanal o quincenal",
     ],
+    extras: [],
   },
   {
     icon: Briefcase,
@@ -68,13 +72,14 @@ const services = [
       "Zonas comunes y baños",
       "Sin interrumpir la actividad",
     ],
+    extras: [],
   },
   {
     icon: Home,
     title: "Limpieza a Domicilio",
     subtitle: "A consultar",
     note: "Servicio personalizado según necesidades",
-    img: communityImg,
+    img: beforeAfterImg,
     alt: "Servicio de limpieza a domicilio",
     color: "from-accent to-primary",
     items: [
@@ -83,6 +88,7 @@ const services = [
       "Plancha y organización",
       "Frecuencia adaptable a tu ritmo",
     ],
+    extras: [],
   },
 ];
 
@@ -139,7 +145,7 @@ const ServicesSection = () => (
             className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 group"
           >
             <div className="h-48 overflow-hidden relative">
-              <img src={s.img} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img src={s.img || postObraImg} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
               <div className={`absolute inset-0 bg-gradient-to-t ${s.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
             </div>
             <div className="p-7">
@@ -152,8 +158,8 @@ const ServicesSection = () => (
                   <span className="text-sm font-bold text-primary">{s.subtitle}</span>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground mb-4 italic">{s.note}</p>
-              <ul className="space-y-2.5 mb-6">
+              {s.note && <p className="text-xs text-muted-foreground mb-4 italic">{s.note}</p>}
+              <ul className="space-y-2.5 mb-4">
                 {s.items.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
                     <CheckCircle2 className="w-4 h-4 text-secondary mt-0.5 shrink-0" />
@@ -161,6 +167,13 @@ const ServicesSection = () => (
                   </li>
                 ))}
               </ul>
+              {s.extras && s.extras.length > 0 && (
+                <div className="mb-4 space-y-1.5">
+                  {s.extras.map((extra) => (
+                    <p key={extra} className="text-xs text-muted-foreground italic pl-6">• {extra}</p>
+                  ))}
+                </div>
+              )}
               <Button variant="outline" size="sm" className="gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300" asChild>
                 <a href="#contacto">
                   Presupuesto sin compromiso <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
