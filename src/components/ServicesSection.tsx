@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles, HardHat, Building2, Briefcase, CheckCircle2, ArrowRight } from "lucide-react";
+import { Sparkles, HardHat, Building2, Briefcase, Home, CheckCircle2, ArrowRight, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import turisticImg from "@/assets/turistic-clean.jpg";
 import beforeAfterImg from "@/assets/before-after.jpg";
@@ -10,8 +10,8 @@ const services = [
   {
     icon: Sparkles,
     title: "Pisos Turísticos",
-    subtitle: "Desde 50€ / servicio",
-    note: "No incluye lavandería",
+    subtitle: "Desde 60€ / 8€ m²",
+    note: "Opcional: Check-in · Lavandería a consultar (depende de la zona)",
     img: turisticImg,
     alt: "Limpieza de piso turístico en la costa valenciana",
     color: "from-primary to-primary/80",
@@ -69,6 +69,21 @@ const services = [
       "Sin interrumpir la actividad",
     ],
   },
+  {
+    icon: Home,
+    title: "Limpieza a Domicilio",
+    subtitle: "A consultar",
+    note: "Servicio personalizado según necesidades",
+    img: communityImg,
+    alt: "Servicio de limpieza a domicilio",
+    color: "from-accent to-primary",
+    items: [
+      "Limpieza general del hogar",
+      "Cocina y baños a fondo",
+      "Plancha y organización",
+      "Frecuencia adaptable a tu ritmo",
+    ],
+  },
 ];
 
 const ServicesSection = () => (
@@ -102,8 +117,18 @@ const ServicesSection = () => (
         >
           Soluciones de limpieza profesional adaptadas a cada necesidad en toda la costa valenciana.
         </motion.p>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full bg-secondary/15 text-secondary border border-secondary/30 font-bold text-sm"
+        >
+          <BadgeCheck className="w-5 h-5" />
+          Presupuesto sin compromiso
+        </motion.div>
       </div>
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
@@ -113,7 +138,7 @@ const ServicesSection = () => (
             transition={{ delay: i * 0.12, duration: 0.5 }}
             className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 group"
           >
-            <div className="h-52 overflow-hidden relative">
+            <div className="h-48 overflow-hidden relative">
               <img src={s.img} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               <div className={`absolute inset-0 bg-gradient-to-t ${s.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
             </div>
@@ -138,7 +163,7 @@ const ServicesSection = () => (
               </ul>
               <Button variant="outline" size="sm" className="gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300" asChild>
                 <a href="#contacto">
-                  Solicitar presupuesto <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Presupuesto sin compromiso <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
             </div>

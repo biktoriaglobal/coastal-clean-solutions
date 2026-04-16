@@ -29,7 +29,7 @@ const Navbar = () => {
             <Sparkles className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className={`font-display text-xl font-bold transition-colors duration-300 ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
-            Costa<span className="text-gradient-primary">Limpia</span>
+            Limpieza<span className="text-gradient-primary">Efficiente</span>
           </span>
         </a>
         <div className="hidden md:flex items-center gap-1">
