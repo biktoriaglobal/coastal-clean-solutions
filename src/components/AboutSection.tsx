@@ -26,7 +26,7 @@ const AboutSection = () => (
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4"
         >
-          ¿Por qué CostaLimpia?
+          ¿Por qué Limpieza Efficiente?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}

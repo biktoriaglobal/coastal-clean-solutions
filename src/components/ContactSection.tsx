@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Upload, X } from "lucide-react";
+import { Send, Upload, X, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -48,6 +48,10 @@ const ContactSection = () => {
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">Contacto</span>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">Solicita Presupuesto</h2>
           <p className="text-muted-foreground text-lg">Rellena el formulario y te contactamos en menos de 1 hora.</p>
+          <div className="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full bg-secondary/15 text-secondary border border-secondary/30 font-bold text-sm">
+            <BadgeCheck className="w-4 h-4" />
+            Presupuesto sin compromiso
+          </div>
         </div>
         <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-card-hover p-8 md:p-10 space-y-5">
           <div className="grid sm:grid-cols-2 gap-5">
@@ -62,7 +66,7 @@ const ContactSection = () => {
           </div>
           <div>
             <label className="text-sm font-medium text-foreground mb-1.5 block">Email</label>
-            <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="tu@email.com" />
+            <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="limpieza@max-efficiency.es" />
           </div>
           <div>
             <label className="text-sm font-medium text-foreground mb-1.5 block">Tipo de servicio *</label>
@@ -73,6 +77,7 @@ const ContactSection = () => {
                 <SelectItem value="Post-Obra">Post-Obra</SelectItem>
                 <SelectItem value="Comunidad de Vecinos">Comunidad de Vecinos</SelectItem>
                 <SelectItem value="Local / Oficina">Local / Oficina</SelectItem>
+                <SelectItem value="Limpieza a Domicilio">Limpieza a Domicilio</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -115,9 +120,12 @@ const ContactSection = () => {
               </label>
             )}
           </div>
-          <Button type="submit" className="w-full gap-2" size="lg">
+          <Button type="submit" className="w-full gap-2 bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,38%)] text-white border-0" size="lg">
             <Send className="w-4 h-4" /> Enviar por WhatsApp
           </Button>
+          <p className="text-xs text-center text-muted-foreground">
+            También puedes escribirnos a <a href="mailto:limpieza@max-efficiency.es" className="text-primary underline">limpieza@max-efficiency.es</a>
+          </p>
         </form>
       </div>
     </section>
