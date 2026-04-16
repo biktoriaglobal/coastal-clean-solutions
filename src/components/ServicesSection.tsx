@@ -3,6 +3,7 @@ import { Sparkles, HardHat, Building2, Briefcase, Home, CheckCircle2, ArrowRight
 import { Button } from "@/components/ui/button";
 import turisticImg from "@/assets/turistic-clean.jpg";
 import beforeAfterImg from "@/assets/before-after.jpg";
+import postObraImg from "@/assets/post-obra-clean.jpg";
 import communityImg from "@/assets/community-clean.jpg";
 import officeImg from "@/assets/office-clean.jpg";
 
@@ -144,7 +145,7 @@ const ServicesSection = () => (
             className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 group"
           >
             <div className="h-48 overflow-hidden relative">
-              <img src={s.img} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img src={s.img || postObraImg} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
               <div className={`absolute inset-0 bg-gradient-to-t ${s.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
             </div>
             <div className="p-7">
@@ -157,8 +158,8 @@ const ServicesSection = () => (
                   <span className="text-sm font-bold text-primary">{s.subtitle}</span>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground mb-4 italic">{s.note}</p>
-              <ul className="space-y-2.5 mb-6">
+              {s.note && <p className="text-xs text-muted-foreground mb-4 italic">{s.note}</p>}
+              <ul className="space-y-2.5 mb-4">
                 {s.items.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
                     <CheckCircle2 className="w-4 h-4 text-secondary mt-0.5 shrink-0" />
@@ -166,6 +167,13 @@ const ServicesSection = () => (
                   </li>
                 ))}
               </ul>
+              {s.extras && s.extras.length > 0 && (
+                <div className="mb-4 space-y-1.5">
+                  {s.extras.map((extra) => (
+                    <p key={extra} className="text-xs text-muted-foreground italic pl-6">• {extra}</p>
+                  ))}
+                </div>
+              )}
               <Button variant="outline" size="sm" className="gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300" asChild>
                 <a href="#contacto">
                   Presupuesto sin compromiso <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
