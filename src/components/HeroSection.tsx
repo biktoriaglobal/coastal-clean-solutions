@@ -77,14 +77,14 @@ const HeroSection = () => (
           De Valencia a Altea · 7 días a la semana
         </motion.span>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-primary-foreground leading-[1.05] mb-8 tracking-tight">
-          Tu costa,
+          Transformamos el desorden
           <motion.span
             className="block text-secondary drop-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            siempre eficiente
+            en armonía
           </motion.span>
         </h1>
         <motion.p
