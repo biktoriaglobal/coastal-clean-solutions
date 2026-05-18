@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Sparkles } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -25,9 +26,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-card/95 backdrop-blur-2xl shadow-lg border-b border-border" : "bg-transparent"}`}>
       <div className="container flex items-center justify-between h-16">
         <a href="#inicio" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-xl bg-hero-gradient flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
-            <Sparkles className="w-5 h-5 text-primary-foreground" />
-          </div>
+          <img src={logo} alt="Limpieza Efficiente — Soluciones Residenciales" className="h-10 w-auto group-hover:scale-105 transition-transform duration-300" />
           <span className={`font-display text-xl font-bold transition-colors duration-300 ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
             Limpieza<span className="text-gradient-primary">Efficiente</span>
           </span>
