@@ -1,8 +1,11 @@
-import { Phone, MapPin, Mail, Sparkles } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const cities = [
-  "Valencia", "El Saler", "Cullera", "Gandía", "Oliva",
-  "Dénia", "Jávea", "Moraira", "Calpe", "Altea",
+  "Valencia", "El Saler", "El Perelló", "Sueca", "Cullera",
+  "Tavernes de la Valldigna", "Xeraco", "Gandía", "Oliva", "Pego",
+  "Dénia", "Ondara", "Jávea", "Benissa", "Moraira", "Calpe", "Altea",
 ];
 
 const Footer = () => (
@@ -11,13 +14,12 @@ const Footer = () => (
     <div className="container relative">
       <div className="grid md:grid-cols-4 gap-10 text-primary-foreground/80 text-sm">
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-hero-gradient flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-primary-foreground" />
-            </div>
-            <h3 className="font-display text-2xl font-bold text-primary-foreground">Limpieza Efficiente</h3>
+          <div className="flex items-center gap-3 mb-4">
+            <img src={logo} alt="Limpieza Efficiente" className="h-12 w-auto bg-primary-foreground/10 rounded-lg p-1" />
+            <h3 className="font-display text-xl font-bold text-primary-foreground leading-tight">Limpieza<br/>Efficiente</h3>
           </div>
           <p className="leading-relaxed">Servicios de limpieza profesional en toda la costa valenciana. De Valencia a Altea, tu costa siempre limpia.</p>
+          <p className="mt-4 text-xs text-primary-foreground/60">Empresa perteneciente al <span className="text-secondary font-semibold">Grupo Max Efficiency</span>.</p>
         </div>
         <div>
           <h4 className="font-semibold text-primary-foreground mb-4 uppercase tracking-wide text-xs">Servicios</h4>
@@ -43,14 +45,22 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold text-primary-foreground mb-4 uppercase tracking-wide text-xs">Contacto</h4>
           <ul className="space-y-3">
-            <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-secondary" /> <a href="tel:601902204">601 902 204</a></li>
+            <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-secondary" /> <a href="tel:+34603140026">603 140 026</a></li>
             <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-secondary" /> <a href="mailto:limpieza@max-efficiency.es">limpieza@max-efficiency.es</a></li>
             <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-secondary" /> Valencia – Altea</li>
           </ul>
+          <h4 className="font-semibold text-primary-foreground mt-6 mb-3 uppercase tracking-wide text-xs">Legal</h4>
+          <ul className="space-y-1.5">
+            <li className="hover:text-primary-foreground transition-colors"><Link to="/legal#aviso-legal">Aviso Legal</Link></li>
+            <li className="hover:text-primary-foreground transition-colors"><Link to="/legal#privacidad">Política de Privacidad</Link></li>
+            <li className="hover:text-primary-foreground transition-colors"><Link to="/legal#cookies">Política de Cookies</Link></li>
+            <li className="hover:text-primary-foreground transition-colors"><Link to="/legal#condiciones">Condiciones del Servicio</Link></li>
+          </ul>
         </div>
       </div>
-      <div className="border-t border-primary-foreground/10 mt-10 pt-8 text-center text-xs text-primary-foreground/40">
-        © {new Date().getFullYear()} Limpieza Efficiente. Todos los derechos reservados.
+      <div className="border-t border-primary-foreground/10 mt-10 pt-8 text-center text-xs text-primary-foreground/40 space-y-1">
+        <p>© {new Date().getFullYear()} Limpieza Efficiente — Grupo Max Efficiency. Todos los derechos reservados.</p>
+        <p>Cumplimos con el RGPD (UE) 2016/679 y la LOPDGDD 3/2018.</p>
       </div>
     </div>
   </footer>

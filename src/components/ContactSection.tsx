@@ -37,7 +37,7 @@ const ContactSection = () => {
       form.message ? `Mensaje: ${form.message}` : "",
       photo ? `(Foto adjunta enviada por web)` : "",
     ].filter(Boolean).join("\n");
-    window.open(`https://wa.me/34601902204?text=${encodeURIComponent(lines)}`, "_blank");
+    window.open(`https://wa.me/34603140026?text=${encodeURIComponent(lines)}`, "_blank");
     toast({ title: "¡Mensaje enviado!", description: "Te redirigimos a WhatsApp." });
   };
 
@@ -61,7 +61,7 @@ const ContactSection = () => {
             </div>
             <div>
               <label className="text-sm font-medium text-foreground mb-1.5 block">Teléfono *</label>
-              <Input required type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="601 902 204" />
+              <Input required type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="603 140 026" />
             </div>
           </div>
           <div>
