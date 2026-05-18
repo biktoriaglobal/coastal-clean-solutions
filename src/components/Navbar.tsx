@@ -43,8 +43,8 @@ const Navbar = () => {
             </a>
           ))}
           <Button size="sm" className="ml-3 bg-hero-gradient hover:opacity-90 shadow-md glow-primary" asChild>
-            <a href="tel:601902204" className="gap-2">
-              <Phone className="w-4 h-4" /> 601 902 204
+            <a href="tel:603140026" className="gap-2">
+              <Phone className="w-4 h-4" /> 603 140 026
             </a>
           </Button>
         </div>
@@ -66,8 +66,8 @@ const Navbar = () => {
           ))}
           <div className="px-6 pt-2">
             <Button size="sm" className="w-full bg-hero-gradient" asChild>
-              <a href="tel:601902204" className="gap-2">
-                <Phone className="w-4 h-4" /> 601 902 204
+              <a href="tel:603140026" className="gap-2">
+                <Phone className="w-4 h-4" /> 603 140 026
               </a>
             </Button>
           </div>

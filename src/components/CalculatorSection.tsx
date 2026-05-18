@@ -53,7 +53,7 @@ const CalculatorSection = () => {
             </div>
             <Button className="mt-5 w-full gap-2 bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,38%)] text-white border-0" asChild>
               <a
-                href={`https://wa.me/34601902204?text=Hola!%20Necesito%20presupuesto%20post-obra%20para%20${m2 || "___"}%20m²%20(estimado%20${pricePostObra}€)`}
+                href={`https://wa.me/34603140026?text=Hola!%20Necesito%20presupuesto%20post-obra%20para%20${m2 || "___"}%20m²%20(estimado%20${pricePostObra}€)`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -92,7 +92,7 @@ const CalculatorSection = () => {
             </div>
             <Button className="mt-5 w-full gap-2 bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,38%)] text-white border-0" asChild>
               <a
-                href={`https://wa.me/34601902204?text=Hola!%20Necesito%20presupuesto%20piso%20turístico%20para%20${m2Tourist || "___"}%20m²%20(estimado%20${priceTourist}€)`}
+                href={`https://wa.me/34603140026?text=Hola!%20Necesito%20presupuesto%20piso%20turístico%20para%20${m2Tourist || "___"}%20m²%20(estimado%20${priceTourist}€)`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
