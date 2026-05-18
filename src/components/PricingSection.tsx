@@ -5,15 +5,19 @@ import { motion } from "framer-motion";
 const plans = [
   {
     name: "Pisos Turísticos",
-    price: "Desde 60€",
-    unit: "/ 3€ m²",
+    price: "A consultar",
+    unit: "por servicio o por horas",
     features: [
       "Limpieza profunda completa",
       "Desinfección puntos de contacto",
       "Check-list de revisión",
       "7 días a la semana",
     ],
-    extras: ["Opcional: Check-in", "Lavandería (a consultar)"],
+    extras: [
+      "Presupuesto adaptado a cada piso (tamaño y estado)",
+      "Opcional: Check-in",
+      "Lavandería (a consultar)",
+    ],
     highlight: true,
     badge: "⭐ Popular",
   },
