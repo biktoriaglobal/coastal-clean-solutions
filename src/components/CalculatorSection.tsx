@@ -51,7 +51,7 @@ const CalculatorSection = () => {
             </div>
             <Button className="mt-5 w-full gap-2 bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,38%)] text-white border-0" asChild>
               <a
-                href={`https://wa.me/34603140026?text=Hola!%20Necesito%20presupuesto%20post-obra%20para%20${m2 || "___"}%20m²%20(estimado%20${pricePostObra}€)`}
+                href={`https://api.whatsapp.com/send/?phone=34601902204&text=${encodeURIComponent(`Hola! Necesito presupuesto post-obra para ${m2 || "___"} m² (estimado ${pricePostObra}€)`)}&type=phone_number&app_absent=0`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -83,7 +83,7 @@ const CalculatorSection = () => {
             </div>
             <Button className="mt-5 w-full gap-2 bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,38%)] text-white border-0" asChild>
               <a
-                href={`https://wa.me/34603140026?text=${encodeURIComponent("Hola! Necesito presupuesto para un piso turístico. Os cuento: tamaño, estado y si necesito check-in o lavandería.")}`}
+                href={`https://api.whatsapp.com/send/?phone=34601902204&text=${encodeURIComponent("Hola! Necesito presupuesto para un piso turístico. Os cuento: tamaño, estado y si necesito check-in o lavandería.")}&type=phone_number&app_absent=0`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
