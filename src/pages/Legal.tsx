@@ -23,7 +23,7 @@ const Legal = () => (
         <ul className="list-disc pl-6 space-y-1 mb-4">
           <li><strong>Titular:</strong> Limpieza Efficiente (Grupo Max Efficiency)</li>
           <li><strong>Email:</strong> limpieza@max-efficiency.es</li>
-          <li><strong>Teléfono:</strong> +34 603 140 026</li>
+          <li><strong>Teléfono:</strong> +34 601 902 204</li>
           <li><strong>Domicilio:</strong> Costa Valenciana, España</li>
         </ul>
         <p>El acceso y uso de este sitio web atribuye la condición de usuario y supone la aceptación de las condiciones recogidas en el presente Aviso Legal. Limpieza Efficiente se reserva el derecho a modificar los contenidos del sitio sin previo aviso. Todos los textos, imágenes y elementos gráficos son propiedad de Limpieza Efficiente o cuentan con licencia para su uso.</p>

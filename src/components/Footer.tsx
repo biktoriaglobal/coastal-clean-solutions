@@ -45,7 +45,7 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold text-primary-foreground mb-4 uppercase tracking-wide text-xs">Contacto</h4>
           <ul className="space-y-3">
-            <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-secondary" /> <a href="tel:+34603140026">603 140 026</a></li>
+            <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-secondary" /> <a href="tel:+34601902204">601 902 204</a></li>
             <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-secondary" /> <a href="mailto:limpieza@max-efficiency.es">limpieza@max-efficiency.es</a></li>
             <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-secondary" /> Valencia – Altea</li>
           </ul>
