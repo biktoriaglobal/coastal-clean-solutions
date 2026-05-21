@@ -162,7 +162,7 @@ const PricingSection = () => {
                 asChild
               >
                 <a href="#contacto">
-                  <Globe className="w-4 h-4" /> Contacto Web
+                  <Globe className="w-4 h-4" /> {t("pricing.web")}
                 </a>
               </Button>
             </div>
