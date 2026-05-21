@@ -1,68 +1,68 @@
 import { Check, MessageCircle, Globe, Zap, BadgeCheck, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useLang } from "@/i18n/LanguageContext";
 
-const plans = [
+const buildPlans = (t: (k: string) => string) => [
   {
-    name: "Pisos Turísticos",
-    price: "A consultar",
-    unit: "por servicio o por horas",
+    name: t("pricing.tourist.name"),
+    price: t("pricing.tourist.price"),
+    unit: t("pricing.tourist.unit"),
     features: [
-      "Limpieza profunda completa",
-      "Desinfección puntos de contacto",
-      "Check-list de revisión",
-      "7 días a la semana",
+      t("checklist.i1"),
+      t("checklist.i6"),
+      t("checklist.i8"),
+      t("hero.badge"),
     ],
-    extras: [
-      "Presupuesto adaptado a cada piso (tamaño y estado)",
-      "Opcional: Check-in",
-      "Lavandería (a consultar)",
-    ],
+    extras: [t("calc.tourist.sub")],
     highlight: true,
-    badge: "⭐ Popular",
+    badge: t("pricing.tourist.popular"),
   },
   {
-    name: "Post-Obra",
+    name: t("pricing.postobra.name"),
     price: "8€",
     unit: "/ m²",
     features: [
-      "Eliminación polvo y cemento",
-      "Cristales a fondo",
-      "Limpieza de marcos",
-      "Productos específicos",
+      t("checklist.i2"),
+      t("checklist.i5"),
+      t("checklist.i3"),
+      t("services.postobra.note"),
     ],
     highlight: false,
-    badge: null,
+    badge: null as string | null,
   },
   {
-    name: "Comunidades / Oficinas",
-    price: "A medida",
+    name: t("pricing.community.name"),
+    price: t("pricing.community.price"),
     unit: "",
     features: [
-      "Frecuencia adaptable",
-      "Visita técnica gratuita",
-      "Horario flexible",
-      "Mantenimiento preventivo",
+      t("services.community.note"),
+      t("checklist.i3"),
+      t("services.office.note"),
+      t("checklist.i6"),
     ],
     highlight: false,
-    badge: null,
+    badge: null as string | null,
   },
   {
-    name: "Limpieza a Domicilio",
-    price: "A consultar",
+    name: t("pricing.home.name"),
+    price: t("pricing.home.price"),
     unit: "",
     features: [
-      "Limpieza general del hogar",
-      "Cocina y baños a fondo",
-      "Plancha y organización",
-      "Frecuencia adaptable",
+      t("checklist.i3"),
+      t("checklist.i2"),
+      t("checklist.i4"),
+      t("services.community.note"),
     ],
     highlight: false,
-    badge: "🏠 Nuevo",
+    badge: t("pricing.home.new"),
   },
 ];
 
-const PricingSection = () => (
+const PricingSection = () => {
+  const { t } = useLang();
+  const plans = buildPlans(t);
+  return (
   <section id="tarifas" className="py-24 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/30" />
     <div className="container relative">
@@ -73,7 +73,7 @@ const PricingSection = () => (
           viewport={{ once: true }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4"
         >
-          <Zap className="w-4 h-4" /> Precios
+          <Zap className="w-4 h-4" /> {t("pricing.tag")}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,7 @@ const PricingSection = () => (
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4"
         >
-          Tarifas Transparentes
+          {t("pricing.title")}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -89,7 +89,7 @@ const PricingSection = () => (
           viewport={{ once: true }}
           className="text-muted-foreground max-w-xl mx-auto text-lg"
         >
-          Sin sorpresas. Precios claros para cada servicio.
+          {t("pricing.subtitle")}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -99,7 +99,7 @@ const PricingSection = () => (
           className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full bg-secondary/15 text-secondary border border-secondary/30 font-bold text-sm"
         >
           <BadgeCheck className="w-5 h-5" />
-          Presupuesto sin compromiso
+          {t("pricing.badge")}
         </motion.div>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -162,7 +162,7 @@ const PricingSection = () => (
                 asChild
               >
                 <a href="#contacto">
-                  <Globe className="w-4 h-4" /> Contacto Web
+                  <Globe className="w-4 h-4" /> {t("pricing.web")}
                 </a>
               </Button>
             </div>
@@ -171,6 +171,7 @@ const PricingSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default PricingSection;

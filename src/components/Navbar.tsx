@@ -2,19 +2,22 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
-
-const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Tarifas", href: "#tarifas" },
-  { label: "Zonas", href: "#zonas" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Contacto", href: "#contacto" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLang } from "@/i18n/LanguageContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLang();
+
+  const navLinks = [
+    { label: t("nav.home"), href: "#inicio" },
+    { label: t("nav.services"), href: "#servicios" },
+    { label: t("nav.pricing"), href: "#tarifas" },
+    { label: t("nav.zones"), href: "#zonas" },
+    { label: t("nav.about"), href: "#nosotros" },
+    { label: t("nav.contact"), href: "#contacto" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -41,15 +44,21 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <div className="ml-2">
+            <LanguageSwitcher scrolled={scrolled} />
+          </div>
           <Button size="sm" className="ml-3 bg-hero-gradient hover:opacity-90 shadow-md glow-primary" asChild>
             <a href="tel:601902204" className="gap-2">
               <Phone className="w-4 h-4" /> 601 902 204
             </a>
           </Button>
         </div>
-        <button className={`md:hidden ${scrolled ? "text-foreground" : "text-primary-foreground"}`} onClick={() => setOpen(!open)}>
-          {open ? <X /> : <Menu />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher scrolled={scrolled} />
+          <button className={`${scrolled ? "text-foreground" : "text-primary-foreground"}`} onClick={() => setOpen(!open)}>
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
       {open && (
         <div className="md:hidden bg-card/95 backdrop-blur-2xl border-b border-border pb-4 shadow-xl">

@@ -1,13 +1,15 @@
 import { Shield, Clock, Award } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLang } from "@/i18n/LanguageContext";
 
-const values = [
-  { icon: Shield, title: "Confianza Total", desc: "Equipo verificado, asegurado y con referencias comprobables en toda la costa.", color: "bg-primary/10 text-primary" },
-  { icon: Clock, title: "Disponibilidad Total", desc: "7 días a la semana, incluidos festivos. Adaptados al turismo costero.", color: "bg-secondary/10 text-secondary" },
-  { icon: Award, title: "Equipo Profesional", desc: "Personal formado, uniformado y con experiencia en la costa valenciana.", color: "bg-accent/10 text-accent" },
-];
-
-const AboutSection = () => (
+const AboutSection = () => {
+  const { t } = useLang();
+  const values = [
+    { icon: Shield, title: t("about.v1.title"), desc: t("about.v1.desc"), color: "bg-primary/10 text-primary" },
+    { icon: Clock, title: t("about.v2.title"), desc: t("about.v2.desc"), color: "bg-secondary/10 text-secondary" },
+    { icon: Award, title: t("about.v3.title"), desc: t("about.v3.desc"), color: "bg-accent/10 text-accent" },
+  ];
+  return (
   <section id="nosotros" className="py-24 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-muted/30 to-background" />
     <div className="container relative">
@@ -18,7 +20,7 @@ const AboutSection = () => (
           viewport={{ once: true }}
           className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4"
         >
-          Nosotros
+          {t("about.tag")}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -26,7 +28,7 @@ const AboutSection = () => (
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4"
         >
-          ¿Por qué Limpieza Efficiente?
+          {t("about.title")}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -34,7 +36,7 @@ const AboutSection = () => (
           viewport={{ once: true }}
           className="text-muted-foreground max-w-xl mx-auto text-lg"
         >
-          Somos un equipo local especializado en la limpieza profesional de la costa valenciana. Conocemos cada pueblo, cada necesidad.
+          {t("about.subtitle")}
         </motion.p>
       </div>
       <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -58,6 +60,7 @@ const AboutSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default AboutSection;

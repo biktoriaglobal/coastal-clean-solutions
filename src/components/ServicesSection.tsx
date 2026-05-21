@@ -6,93 +6,77 @@ import beforeAfterImg from "@/assets/before-after.jpg";
 import postObraImg from "@/assets/post-obra-clean.jpg";
 import communityImg from "@/assets/community-clean.jpg";
 import officeImg from "@/assets/office-clean.jpg";
+import { useLang } from "@/i18n/LanguageContext";
 
-const services = [
+const buildServices = (t: (k: string) => string) => [
   {
     icon: Sparkles,
-    title: "Pisos Turísticos",
-    subtitle: "Desde 60€ / 3€ m²",
+    title: t("services.tourist.title"),
+    subtitle: t("services.tourist.subtitle"),
     note: "",
     img: turisticImg,
-    alt: "Limpieza de piso turístico en la costa valenciana",
+    alt: t("services.tourist.title"),
     color: "from-primary to-primary/80",
     items: [
-      "Limpieza profunda de baños y cocina",
-      "Repaso de superficies y suelos",
-      "Cristales interiores",
-      "Desinfección de puntos de contacto (mandos, pomos)",
-      "Disponibilidad 7 días / semana",
-      "Check-list de revisión tras cada limpieza",
+      t("checklist.i1"),
+      t("checklist.i3"),
+      t("checklist.i5"),
+      t("checklist.i6"),
+      t("hero.badge"),
+      t("checklist.i8"),
     ],
-    extras: ["Opcional: Check-in", "Lavandería (a consultar)"],
+    extras: [],
   },
   {
     icon: HardHat,
-    title: "Limpieza Post-Obra",
-    subtitle: "8€ / m²",
-    note: "Productos y equipos específicos",
-    img: null, // will use postObraImg
-    alt: "Antes y después de limpieza post-obra",
+    title: t("services.postobra.title"),
+    subtitle: t("services.postobra.subtitle"),
+    note: t("services.postobra.note"),
+    img: null as string | null,
+    alt: t("services.postobra.title"),
     color: "from-accent to-accent/80",
-    items: [
-      "Eliminación de polvo fino y restos de cemento",
-      "Limpieza de pintura en marcos",
-      "Cristales a fondo",
-      "Productos específicos para cada superficie",
-    ],
+    items: [t("checklist.i2"), t("checklist.i3"), t("checklist.i5"), t("services.postobra.note")],
     extras: [],
   },
   {
     icon: Building2,
-    title: "Comunidades de Vecinos",
-    subtitle: "Presupuesto personalizado",
-    note: "Frecuencia adaptable",
+    title: t("services.community.title"),
+    subtitle: t("services.community.subtitle"),
+    note: t("services.community.note"),
     img: communityImg,
-    alt: "Limpieza de comunidad de vecinos",
+    alt: t("services.community.title"),
     color: "from-secondary to-secondary/80",
-    items: [
-      "Escaleras, rellanos y portales",
-      "Limpieza de ascensores",
-      "Mantenimiento preventivo",
-      "Frecuencia: diaria, semanal o quincenal",
-    ],
+    items: [t("checklist.i3"), t("checklist.i4"), t("checklist.i6"), t("services.community.note")],
     extras: [],
   },
   {
     icon: Briefcase,
-    title: "Locales y Oficinas",
-    subtitle: "Presupuesto personalizado",
-    note: "Fuera de horario comercial",
+    title: t("services.office.title"),
+    subtitle: t("services.office.subtitle"),
+    note: t("services.office.note"),
     img: officeImg,
-    alt: "Limpieza profesional de oficinas",
+    alt: t("services.office.title"),
     color: "from-primary to-secondary",
-    items: [
-      "Limpieza fuera de horario comercial",
-      "Desinfección de puestos de trabajo",
-      "Zonas comunes y baños",
-      "Sin interrumpir la actividad",
-    ],
+    items: [t("services.office.note"), t("checklist.i6"), t("checklist.i3"), t("checklist.i5")],
     extras: [],
   },
   {
     icon: Home,
-    title: "Limpieza a Domicilio",
-    subtitle: "A consultar",
-    note: "Servicio personalizado según necesidades",
+    title: t("services.home.title"),
+    subtitle: t("services.home.subtitle"),
+    note: t("services.home.note"),
     img: beforeAfterImg,
-    alt: "Servicio de limpieza a domicilio",
+    alt: t("services.home.title"),
     color: "from-accent to-primary",
-    items: [
-      "Limpieza general del hogar",
-      "Cocina y baños a fondo",
-      "Plancha y organización",
-      "Frecuencia adaptable a tu ritmo",
-    ],
+    items: [t("checklist.i3"), t("checklist.i2"), t("checklist.i4"), t("services.community.note")],
     extras: [],
   },
 ];
 
-const ServicesSection = () => (
+const ServicesSection = () => {
+  const { t } = useLang();
+  const services = buildServices(t);
+  return (
   <section id="servicios" className="py-24 bg-coast-gradient relative overflow-hidden">
     <div className="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-primary/3 blur-[100px]" />
     <div className="absolute bottom-20 left-0 w-[400px] h-[400px] rounded-full bg-secondary/3 blur-[100px]" />
@@ -104,7 +88,7 @@ const ServicesSection = () => (
           viewport={{ once: true }}
           className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4"
         >
-          Servicios
+          {t("services.tag")}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -112,7 +96,7 @@ const ServicesSection = () => (
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4"
         >
-          Nuestros Servicios
+          {t("services.title")}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -121,7 +105,7 @@ const ServicesSection = () => (
           transition={{ delay: 0.2 }}
           className="text-muted-foreground max-w-xl mx-auto text-lg"
         >
-          Soluciones de limpieza profesional adaptadas a cada necesidad en toda la costa valenciana.
+          {t("services.subtitle")}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -131,7 +115,7 @@ const ServicesSection = () => (
           className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full bg-secondary/15 text-secondary border border-secondary/30 font-bold text-sm"
         >
           <BadgeCheck className="w-5 h-5" />
-          Presupuesto sin compromiso
+          {t("services.badge")}
         </motion.div>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -176,7 +160,7 @@ const ServicesSection = () => (
               )}
               <Button variant="outline" size="sm" className="gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300" asChild>
                 <a href="#contacto">
-                  Presupuesto sin compromiso <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {t("services.cta")} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
             </div>
@@ -185,6 +169,7 @@ const ServicesSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default ServicesSection;

@@ -1,26 +1,22 @@
 import { CheckCircle2, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLang } from "@/i18n/LanguageContext";
 
-const items = [
-  "Limpieza profunda de baños (sanitarios, mamparas, espejos)",
-  "Cocina completa (encimera, fregadero, electrodomésticos exteriores)",
-  "Repaso de superficies y mobiliario",
-  "Fregado de suelos con desinfectante",
-  "Cristales interiores",
-  "Desinfección de mandos, pomos e interruptores",
-  "Retirada de basura y bolsas",
-  "Revisión final con check-list firmado",
-];
-
-const ChecklistSection = () => (
+const ChecklistSection = () => {
+  const { t } = useLang();
+  const items = [
+    t("checklist.i1"), t("checklist.i2"), t("checklist.i3"), t("checklist.i4"),
+    t("checklist.i5"), t("checklist.i6"), t("checklist.i7"), t("checklist.i8"),
+  ];
+  return (
   <section className="py-20 bg-muted/50">
     <div className="container max-w-3xl">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-          Check-List Limpieza Turística
+          {t("checklist.title")}
         </h2>
         <p className="text-muted-foreground">
-          Esto es exactamente lo que hacemos en cada servicio. Total transparencia para los propietarios de Airbnb y apartamentos turísticos.
+          {t("checklist.subtitle")}
         </p>
       </div>
       <div className="bg-card rounded-xl shadow-card p-8">
@@ -35,6 +31,7 @@ const ChecklistSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default ChecklistSection;
