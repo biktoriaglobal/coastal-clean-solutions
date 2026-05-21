@@ -1,5 +1,6 @@
 import { Star, Quote } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLang } from "@/i18n/LanguageContext";
 
 const testimonials = [
   {
@@ -57,7 +58,9 @@ const StarRating = ({ rating }: { rating: number }) => (
   </div>
 );
 
-const TestimonialsSection = () => (
+const TestimonialsSection = () => {
+  const { t } = useLang();
+  return (
   <section className="py-24 bg-coast-gradient relative overflow-hidden">
     <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl -translate-y-1/2 translate-x-1/2" />
     <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-secondary/5 blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -69,7 +72,7 @@ const TestimonialsSection = () => (
           viewport={{ once: true }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold mb-4"
         >
-          <Star className="w-4 h-4 fill-secondary" /> 5.0 de media
+          <Star className="w-4 h-4 fill-secondary" /> {t("test.tag")}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +80,7 @@ const TestimonialsSection = () => (
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4"
         >
-          Lo que dicen nuestros clientes
+          {t("test.title")}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -86,7 +89,7 @@ const TestimonialsSection = () => (
           transition={{ delay: 0.2 }}
           className="text-muted-foreground max-w-xl mx-auto text-lg"
         >
-          La satisfacción de nuestros clientes es nuestra mejor carta de presentación
+          {t("test.subtitle")}
         </motion.p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -117,6 +120,7 @@ const TestimonialsSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default TestimonialsSection;

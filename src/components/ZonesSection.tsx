@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin, Navigation } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 
 const zones = [
   { name: "Valencia", highlight: true },
@@ -21,7 +22,9 @@ const zones = [
   { name: "Altea", highlight: true },
 ];
 
-const ZonesSection = () => (
+const ZonesSection = () => {
+  const { t } = useLang();
+  return (
   <section id="zonas" className="py-24 relative overflow-hidden">
     <div className="absolute inset-0 bg-coast-gradient" />
     <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-primary/5 blur-[80px]" />
@@ -34,7 +37,7 @@ const ZonesSection = () => (
           viewport={{ once: true }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4"
         >
-          <Navigation className="w-4 h-4" /> Cobertura
+          <Navigation className="w-4 h-4" /> {t("zones.tag")}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +45,7 @@ const ZonesSection = () => (
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4"
         >
-          Zonas de Actuación
+          {t("zones.title")}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -50,7 +53,7 @@ const ZonesSection = () => (
           viewport={{ once: true }}
           className="text-muted-foreground max-w-xl mx-auto text-lg"
         >
-          Cubrimos toda la costa desde Valencia hasta Altea. Servicio de limpieza profesional en los principales municipios costeros.
+          {t("zones.subtitle")}
         </motion.p>
       </div>
       <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
@@ -80,10 +83,11 @@ const ZonesSection = () => (
         transition={{ delay: 0.5 }}
         className="text-center mt-8 text-sm text-muted-foreground"
       >
-        ¿Tu municipio no aparece? <a href="#contacto" className="text-primary font-semibold hover:underline">Consúltanos</a> — probablemente también te cubrimos.
+        {t("zones.notfound")} <a href="#contacto" className="text-primary font-semibold hover:underline">{t("zones.ask")}</a>{t("zones.notfound2")}
       </motion.p>
     </div>
   </section>
-);
+  );
+};
 
 export default ZonesSection;
