@@ -29,10 +29,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-card/95 backdrop-blur-2xl shadow-lg border-b border-border" : "bg-transparent"}`}>
       <div className="container flex items-center justify-between h-16">
         <a href="#inicio" className="flex items-center gap-2 group">
-          <img src={logo} alt="Limpieza Efficiente — Soluciones Residenciales" className="h-10 w-auto group-hover:scale-105 transition-transform duration-300" />
-          <span className={`font-display text-xl font-bold transition-colors duration-300 ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
-            Limpieza<span className="text-gradient-primary">Efficiente</span>
-          </span>
+          <img src={logo} alt="Limpieza Efficiente — Soluciones Residenciales" className="h-14 w-auto group-hover:scale-105 transition-transform duration-300" />
         </a>
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((l) => (
