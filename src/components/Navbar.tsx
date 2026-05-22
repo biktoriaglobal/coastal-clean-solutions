@@ -44,20 +44,20 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <div className="ml-2">
-            <LanguageSwitcher scrolled={scrolled} />
-          </div>
           <Button size="sm" className="ml-3 bg-hero-gradient hover:opacity-90 shadow-md glow-primary" asChild>
             <a href="tel:601902204" className="gap-2">
               <Phone className="w-4 h-4" /> 601 902 204
             </a>
           </Button>
+          <div className="ml-3">
+            <LanguageSwitcher scrolled={scrolled} />
+          </div>
         </div>
         <div className="md:hidden flex items-center gap-2">
-          <LanguageSwitcher scrolled={scrolled} />
           <button className={`${scrolled ? "text-foreground" : "text-primary-foreground"}`} onClick={() => setOpen(!open)}>
             {open ? <X /> : <Menu />}
           </button>
+          <LanguageSwitcher scrolled={scrolled} />
         </div>
       </div>
       {open && (
